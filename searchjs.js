@@ -53,6 +53,7 @@ var list = ['bombay duck', 'mutton', 'shimla mirch', 'dried mango', 'flour',
   'fresh green chilli', 'red food coloring', 'pomegranate', 'coconut milk', 'aloo', 'mango', 
   'green peas', 'boiled pork'];
 
+var l = [];
 
 /*initiate the autocomplete function on the "Input" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), list);
@@ -93,6 +94,14 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
               inp.value = this.getElementsByTagName("input")[0].value;
+              l.push(this.getElementsByTagName("input")[0].value);
+              console.log(l);
+
+              showNotes();
+              
+
+              inp.value = "";
+
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -100,7 +109,38 @@ function autocomplete(inp, arr) {
           a.appendChild(b);
         }
       }
+      
   });
+
+
+
+function showNotes()
+{
+    let html = "";
+  l.forEach(function(element, index) {
+    html += `
+            <div class=" card card-columns text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title"> ${element}</h4>
+                        <button id="${index}" onclick="deleteNote(this.id)" class="btn"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </div>`;
+  });
+
+  let notesElm = document.getElementById("notes");
+  if (l.length != 0) {
+    notesElm.innerHTML = html;
+  } else {
+    notesElm.innerHTML = '<h5 style="margin-left = 20%">Nothing to show! Click on "Add a Note" button to add notes.</h5>';
+  }
+}
+
+
+function deleteNote(index)
+{
+  l.splice(index, 1);
+  console.log(l);
+}
 
 
   /*execute a function presses a key on the keyboard:*/
@@ -141,12 +181,16 @@ function autocomplete(inp, arr) {
     /*add class "autocomplete-active":*/
     x[currentFocus].classList.add("autocomplete-active");
   }
+
+
   function removeActive(x) {
     /*a function to remove the "active" class from all autocomplete items:*/
     for (var i = 0; i < x.length; i++) {
       x[i].classList.remove("autocomplete-active");
     }
   }
+
+
   function closeAllLists(elmnt) {
     /*close all autocomplete lists in the document,
     except the one passed as an argument:*/
@@ -157,6 +201,8 @@ function autocomplete(inp, arr) {
       }
     }
   }
+
+
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
