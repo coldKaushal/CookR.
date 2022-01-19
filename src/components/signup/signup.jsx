@@ -1,11 +1,11 @@
 import React from "react";
 
-import './../../css/style1.css';
-import './../../css/style2.css';
+import  './../../css/style1.css';
+import  './../../css/style2.css';
 
 
 function Signup(){
-    return <section class="signup">
+    return <section class="signup signup_login">
     <div class="container">
         <div class="signup-content">
             <div class="signup-form">

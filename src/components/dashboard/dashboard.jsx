@@ -4,6 +4,8 @@ import Hero from "./hero";
 import Trending from "./trending";
 import Footer from "../footer";
 import BackToTop from "./back-to-top";
+import "../../css/style.css"; 
+
 
 //TODO: Fix BackToTop button
 
