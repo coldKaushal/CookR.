@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashBoard from "./components/dashboard/dashboard"
 import Signup from "./components/signup/signup";
 import Login from "./components/login/login";
+import Explore from "./components/explore/explore";
 //TODO: Fix BackToTop button
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
 
     </Route>
     <Route path="/login" element={<Login />}>
+
+    </Route>
+    <Route path="/explore" element={<Explore />}>
 
     </Route>
   </Routes>
