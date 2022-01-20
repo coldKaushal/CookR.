@@ -4,6 +4,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashBoard from "./components/dashboard/dashboard"
 import Signup from "./components/signup/signup";
+import Login from "./components/login/login";
 //TODO: Fix BackToTop button
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
 
     </Route>
     <Route path="/signup" element={<Signup/>}>
+
+    </Route>
+    <Route path="/login" element={<Login />}>
 
     </Route>
   </Routes>
