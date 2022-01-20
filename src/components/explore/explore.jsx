@@ -7,7 +7,7 @@ import ExploreBody from "./explore-body"
 function Explore(){
     return <div>
         <Header />
-        <ExploreHeading />
+        <ExploreHeading title="Explore" />
         <ExploreBody />
     </div>
 }

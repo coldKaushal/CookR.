@@ -1,10 +1,10 @@
 import React from "react";
 
-function ExploreHeading(){
+function ExploreHeading(props){
     return <section class="breadcrumbs">
     <div class="container">
 
-      <h2>Explore</h2>
+      <h2>{props.title}</h2>
 
     </div>
   </section>

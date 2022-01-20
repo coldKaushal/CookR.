@@ -6,6 +6,9 @@ import DashBoard from "./components/dashboard/dashboard"
 import Signup from "./components/signup/signup";
 import Login from "./components/login/login";
 import Explore from "./components/explore/explore";
+import Search from "./components/search/search";
+
+
 //TODO: Fix BackToTop button
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
 
     </Route>
     <Route path="/explore" element={<Explore />}>
+
+    </Route>
+    <Route path="/search" element={<Search />}>
 
     </Route>
   </Routes>
