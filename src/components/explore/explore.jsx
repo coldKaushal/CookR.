@@ -1,19 +1,18 @@
 import React from "react";
 import Header from "../dashboard/header";
 import ExploreHeading from "./explore-heading";
-import ExploreBody from "./explore-body"
-
+import ExploreBody from "./explore-body";
+import Footer from "../footer";
 
 function Explore(){
     return <div>
         <Header />
         <ExploreHeading title="Explore" />
         <ExploreBody />
+        <Footer />
     </div>
 }
 
 
 export default Explore;
 
-//a prog is running on cpu total no. of instr= 10mil, avg cycle required = 2.5 and clocl operates at 200mhz, cal tou, and execution time
-//an instr set has 3 inst classes a b c, a=1, b=2, c=3, 

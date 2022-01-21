@@ -2,12 +2,18 @@
 
 }
 
-.search-bar .visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
+.search-bar .search-suggestion {
+    width: 200px;
+    max-height: 300px;
+    overflow-y: scroll; 
+  }
+  
+.search-bar .search-suggestion::-webkit-scrollbar {
+      display: none;
+  }
+  
+.search-bar .search-suggestion {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+
