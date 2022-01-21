@@ -1,6 +1,9 @@
 import React from "react";
 import SearchBar from "./search-bar";
 import list from "./search-suggestion";
+// import "../../css/searchbar-style";
+import ExploreBlogs from "../explore/explore-blogs";
+
 
 function SearchBody(){
     const [itemList, updateItemList] = React.useState([]);
@@ -48,8 +51,11 @@ function SearchBody(){
                 </div>
                 <div class="col-9" >
                     <SearchBar addItem={addItem}/>
+                    <ExploreBlogs />
                 </div>
+
             </div>
+           
         </div>
 
     );
