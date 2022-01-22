@@ -1,44 +1,83 @@
 import React from "react";
-
 import  './../../css/style1.css';
 import  './../../css/style2.css';
-
+import { BrowserRouter } from 'react-router-dom';
+import { Navigate } from 'react-router';
 
 function Signup(){
-    return <section class="signup signup_login">
-    <div class="container">
-        <div class="signup-content">
-            <div class="signup-form">
-                <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form">
-                    <div class="form-group">
-                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="name" id="name" placeholder="Your Name"/>
+
+    const [credential, updateCredential] = React.useState({username:"", password: ""});
+
+    function changeCredential(event){
+        const name=event.target.name;
+        const value=event.target.value;
+        updateCredential(prevValue=>{
+            return {
+                ...prevValue,
+                [name]:value
+            }
+        });
+        console.log(credential);
+    }
+
+    function handleSubmit(event){
+        console.log(credential);
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("username", credential.username);
+        urlencoded.append("password", credential.password);
+
+        fetch('http://localhost:4000/signup', { method: 'POST', headers: myHeaders, body: urlencoded }).then(function(response) {
+        
+        return response;  
+      }).then(result=>{
+          console.log("result");
+          return result;
+      })
+       
+      
+
+        event.preventDefault();
+        
+    }
+
+    return <section className="signup signup_login">
+    <div className="container">
+        <div className="signup-content">
+            <div className="signup-form">
+                <h2 className="form-title">Sign up</h2>
+                <form onSubmit={handleSubmit} className="register-form" id="register-form">
+
+
+                    <div className="form-group">
+                        <label htmlFor="email"><i className="zmdi zmdi-email"></i></label>
+                        <input onChange={changeCredential} type="email" name="username" id="name" placeholder="Your Email" value={credential.username}/>
                     </div>
-                    <div class="form-group">
-                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email" name="email" id="email" placeholder="Your Email"/>
+                    <div className="form-group">
+                        <label htmlFor="pass"><i className="zmdi zmdi-lock"></i></label>
+                        <input onChange={changeCredential} type="password" name="password" id="pass" placeholder="Password" value={credential.password}/>
                     </div>
-                    <div class="form-group">
-                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="pass" id="pass" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                    <div className="form-group">
+                        <label htmlFor="re-pass"><i className="zmdi zmdi-lock-outline"></i></label>
                         <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
                     </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    <div className="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" className="agree-term" />
+                        <label htmlFor="agree-term" className="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" className="term-service">Terms of service</a></label>
                     </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+
+
+                    <div className="form-group form-button">
+                        <input type="submit" name="signup" id="signup" className="form-submit" value="Register"/>
                     </div>
                 </form>
             </div>
-            <div class="signup-image">
+            <div className="signup-image">
                 <figure><img src="images/signup-image.jpg" alt="sing up image" /></figure>
-                <a href="login" class="signup-image-link">I am already member</a>
+                <a href="login" className="signup-image-link">I am already member</a>
             </div>
         </div>
     </div>
