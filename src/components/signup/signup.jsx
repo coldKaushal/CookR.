@@ -1,11 +1,11 @@
 import React from "react";
 import  './../../css/style1.css';
 import  './../../css/style2.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+
 
 function Signup(){
-
+    const navigate = useNavigate();
     const [credential, updateCredential] = React.useState({username:"", password: ""});
 
     function changeCredential(event){
@@ -17,7 +17,7 @@ function Signup(){
                 [name]:value
             }
         });
-        console.log(credential);
+        //console.log(credential);
     }
 
     function handleSubmit(event){
@@ -34,8 +34,13 @@ function Signup(){
         
         return response;  
       }).then(result=>{
-          console.log("result");
+          //console.log("result");
+          console.log(result.status);
+          if(result.status==200){
+            navigate("../", { replace: true });
+          }
           return result;
+          
       })
        
       
