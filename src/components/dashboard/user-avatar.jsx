@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/user-avatar.css";
 function UserAvatar() {
     const navigate = useNavigate();
     const [status, updateStatus] = React.useState(-1);
@@ -29,7 +30,19 @@ function UserAvatar() {
             } )
             .catch(error => console.log('error', error));
     }
-    return <button onClick={logout}>log out</button>
+    
+    return <div class="btn-group user-avatar">
+    <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" />
+    </button>
+    <div class="dropdown-menu dropdown-btn" >
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">Add recipe</a>
+      <a class="dropdown-item" href="#">Favourites</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" onClick={logout}>Logout</a>
+    </div>
+  </div>
 }
 
 export default UserAvatar;
