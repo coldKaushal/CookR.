@@ -6,7 +6,6 @@ import Footer from "../footer";
 import BackToTop from "./back-to-top";
 import "../../css/style.css"; 
 
-
 //TODO: Fix BackToTop button
 
 function Dashboard() {

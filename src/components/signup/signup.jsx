@@ -21,7 +21,7 @@ function Signup(){
     }
 
     function handleSubmit(event){
-        console.log(credential);
+        //console.log(credential);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -35,8 +35,9 @@ function Signup(){
         return response;  
       }).then(result=>{
           //console.log("result");
-          console.log(result.status);
+          //console.log(result.status);
           if(result.status==200){
+              localStorage.setItem('user', JSON.stringify(credential));
             navigate("../", { replace: true });
           }
           return result;
@@ -82,7 +83,7 @@ function Signup(){
             </div>
             <div className="signup-image">
                 <figure><img src="images/signup-image.jpg" alt="sing up image" /></figure>
-                <a href="login" className="signup-image-link">I am already member</a>
+                <a onClick={()=> navigate('../login', {replace: true})} className="signup-image-link">I am already member</a>
             </div>
         </div>
     </div>

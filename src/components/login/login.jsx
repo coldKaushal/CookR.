@@ -37,6 +37,7 @@ function Login(){
           //console.log("result");
           console.log(result.status);
           if(result.status==200){
+              localStorage.setItem('user', JSON.stringify(credential));
             navigate("../", { replace: true });
           }
           return result;
