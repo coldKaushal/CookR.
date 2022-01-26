@@ -5,8 +5,8 @@ import UserAvatar from "./user-avatar";
 
 
 
-function Header() {
-
+function Header(props) {
+  const userAvatarDetails=props.userAvatarDetails;
 
   let navigate = useNavigate();
   function navigateSignup() {
@@ -22,7 +22,6 @@ function Header() {
 
   try {
     const User = JSON.parse(localStorage.getItem('user'));
-    console.log(User);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -47,7 +46,7 @@ function Header() {
     <div className="container d-flex align-items-center">
       <h1 className="logo me-auto"><a href="index.html">CookR<span>.</span></a></h1>
 
-      {status==200?<UserAvatar />: <div>
+      {status==200?<UserAvatar title={userAvatarDetails.title} url={userAvatarDetails.url}/>: <div>
         <a onClick={navigateSignup} className="get-started-btn scrollto">SignUp</a>
         <a onClick={navigateLogin} className="get-started-btnl scrollto">Login</a>
       </div>}

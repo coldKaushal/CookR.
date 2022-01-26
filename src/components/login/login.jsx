@@ -9,19 +9,15 @@ function Login(){
     function changeCredential(event){
         const name=event.target.name;
         const value=event.target.value;
-        console.log(name);
-        console.log(value);
         updateCredential(prevValue=>{
             return {
                 ...prevValue,
                 [name]:value
             }
         });
-        console.log(credential);
     }
 
     function handleSubmit(event){
-        console.log(credential);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -34,18 +30,14 @@ function Login(){
         
         return response;  
       }).then(result=>{
-          //console.log("result");
-          console.log(result.status);
           if(result.status==200){
               localStorage.setItem('user', JSON.stringify(credential));
-            navigate("../", { replace: true });
+            navigate("../", { replace: true, state:{loggedIn: true} });
           }
           return result;
           
       })
        
-      
-
         event.preventDefault();
         
     }

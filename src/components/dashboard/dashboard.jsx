@@ -5,12 +5,15 @@ import Trending from "./trending";
 import Footer from "../footer";
 import BackToTop from "./back-to-top";
 import "../../css/style.css"; 
-
 //TODO: Fix BackToTop button
 
 function Dashboard() {
+  const userAvatarDetails={
+    title: ['Profile', 'Addrecipe', 'Favourites'],
+    url: ['./profile', './addRecipe', './favourite']
+  }
   return <div>
-    <Header />
+    <Header userAvatarDetails={userAvatarDetails}/>
     <Hero />
     <Trending />
     <Footer />
