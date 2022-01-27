@@ -5,8 +5,12 @@ import ExploreBody from "./explore-body";
 import Footer from "../footer";
 
 function Explore(){
+    const userAvatarDetails={
+        title: ['Profile', 'Addrecipe', 'Favourites'],
+        url: ['../profile', '../addRecipe', '../favourite']
+      }
     return <div>
-        <Header />
+        <Header userAvatarDetails={userAvatarDetails}/>
         <ExploreHeading title="Explore" />
         <ExploreBody />
         <Footer />
