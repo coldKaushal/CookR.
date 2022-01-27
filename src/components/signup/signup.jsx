@@ -17,11 +17,9 @@ function Signup(){
                 [name]:value
             }
         });
-        //console.log(credential);
     }
 
     function handleSubmit(event){
-        //console.log(credential);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -34,19 +32,13 @@ function Signup(){
         
         return response;  
       }).then(result=>{
-          //console.log("result");
-          //console.log(result.status);
           if(result.status==200){
-              localStorage.setItem('user', JSON.stringify(credential));
             navigate("../", { replace: true });
           }
           return result;
           
-      })
-       
-      
-
-        event.preventDefault();
+      });
+      event.preventDefault();
         
     }
 

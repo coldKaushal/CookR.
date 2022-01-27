@@ -5,7 +5,6 @@ import {useNavigate} from "react-router-dom";
 function Login(){
     const navigate=useNavigate();
     const [credential, updateCredential] = React.useState({username:"", password: ""});
-
     function changeCredential(event){
         const name=event.target.name;
         const value=event.target.value;
@@ -31,7 +30,13 @@ function Login(){
         return response;  
       }).then(result=>{
           if(result.status==200){
-              localStorage.setItem('user', JSON.stringify(credential));
+              const userInfo = {
+                  username: credential.username,
+                  isloggedin: true
+              }
+              console.log(userInfo);
+              localStorage.setItem('user', JSON.stringify(userInfo));
+            //   sessionStorage.setItem('loginStatus', true);
             navigate("../", { replace: true, state:{loggedIn: true} });
           }
           return result;
@@ -63,7 +68,7 @@ function Login(){
                         <input onChange={changeCredential} value={credential.password} type="password" name="password" id="password" placeholder="Password"/>
                     </div>
                     <div className="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" className="agree-term" />
+                        <input type="checkbox" name="rememberMe" id="remember-me" className="agree-term"/>
                         <label htmlFor="remember-me" className="label-agree-term"><span><span></span></span>Remember me</label>
                     </div>
                     <div className="form-group form-button">

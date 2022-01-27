@@ -12,6 +12,13 @@ function Dashboard() {
     title: ['Profile', 'Addrecipe', 'Favourites'],
     url: ['./profile', './addRecipe', './favourite']
   }
+  const userInfo={
+    username: "",
+    isloggedin: false
+  }
+  if(localStorage.getItem('user')==null){
+    localStorage.setItem('user', JSON.stringify(userInfo));
+  }
   return <div>
     <Header userAvatarDetails={userAvatarDetails}/>
     <Hero />
