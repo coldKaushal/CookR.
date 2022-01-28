@@ -7,7 +7,8 @@ import Footer from "../footer";
 function Search(){
     const userAvatarDetails={
         title: ['Profile', 'Addrecipe', 'Favourites'],
-        url: ['../profile', '../addRecipe', '../favourite']
+        url: ['../profile', '../addRecipe', '../favourite'],
+        homePath: "../"
       }
     return(
         <div>

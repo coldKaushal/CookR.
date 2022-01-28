@@ -23,7 +23,7 @@ function Header(props) {
     <div className="container d-flex align-items-center">
       <h1 className="logo me-auto"><a href="index.html">CookR<span>.</span></a></h1>
 
-      {status == 200 ? <UserAvatar title={userAvatarDetails.title} url={userAvatarDetails.url} /> : <div>
+      {status == 200 ? <UserAvatar homePath={userAvatarDetails.homePath} title={userAvatarDetails.title} url={userAvatarDetails.url} /> : <div>
         <a onClick={navigateSignup} className="get-started-btn scrollto">SignUp</a>
         <a onClick={navigateLogin} className="get-started-btnl scrollto">Login</a>
       </div>}

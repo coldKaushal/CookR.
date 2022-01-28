@@ -25,7 +25,11 @@ function UserAvatar(props) {
                 if(result.status==200){
                     console.log("logged out successfully");
                     localStorage.removeItem('user');
-                    window.location.reload();
+                    if(props.homePath=="./"){
+                        window.location.reload();
+                    }else{
+                        navigate(props.homePath, {replace:true});
+                    }
                 }
             } )
             .catch(error => console.log('error', error));

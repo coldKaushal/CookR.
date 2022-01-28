@@ -33,7 +33,13 @@ function Signup(){
         return response;  
       }).then(result=>{
           if(result.status==200){
-            navigate("../", { replace: true });
+            const userInfo = {
+                username: credential.username,
+                isloggedin: true
+            }
+            console.log(userInfo);
+            localStorage.setItem('user', JSON.stringify(userInfo));
+            navigate("../profile", { replace: true });
           }
           return result;
           

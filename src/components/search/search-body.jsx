@@ -1,7 +1,8 @@
 import React from "react";
 import SearchBar from "./search-bar";
 import list from "./search-suggestion";
-// import "../../css/searchbar-style";
+import "../../css/searchbar-style.css";
+
 import ExploreBlogs from "../explore/explore-blogs";
 
 

@@ -4,7 +4,8 @@ import Header from "../dashboard/header";
 function Favourite(){
     const userAvatarDetails={
         title: ['DashBoard', 'Profile', 'Addrecipe'],
-        url: ['../', '../profile', '../addRecipe']
+        url: ['../', '../profile', '../addRecipe'],
+        homePath: "../"
       }
     return <div>
         <Header userAvatarDetails={userAvatarDetails}/>
