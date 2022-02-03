@@ -3,8 +3,8 @@ import Header from "../dashboard/header";
 
 function Favourite(){
     const userAvatarDetails={
-        title: ['DashBoard', 'Profile', 'Addrecipe'],
-        url: ['../', '../profile', '../addRecipe'],
+        title: ['DashBoard', 'WorkSpace'],
+        url: ['../', '../workspace'],
         homePath: "../"
       }
     return <div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../dashboard/header";
-
+import Body from "./body";
 function AddRecipe(){
     const userAvatarDetails={
         title: ['DashBoard', 'Profile', 'Favourites'],
@@ -9,6 +9,7 @@ function AddRecipe(){
       }
     return <div>
         <Header userAvatarDetails={userAvatarDetails}/>
+        <Body />
     </div>
 
 }

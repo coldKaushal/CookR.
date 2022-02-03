@@ -8,8 +8,7 @@ import Login from "./components/login/login";
 import Explore from "./components/explore/explore";
 import Search from "./components/search/search";
 import Profile from "./components/profile/profile";
-import AddRecipe from "./components/addRecipe/add-recipe";
-import Favourite from "./components/favourite/favourite";
+import WorkSpace from "./components/workspace/workspace";
 //TODO: Fix BackToTop button
 
 function App() {
@@ -21,8 +20,7 @@ function App() {
     <Route path="/explore" element={<Explore />} />
     <Route path="/search" element={<Search />} />
     <Route path="/profile" element={<Profile />} />
-    <Route path="/addRecipe" element={<AddRecipe />} />
-    <Route path="/favourite" element={<Favourite />} />
+    <Route path="/workspace" element={<WorkSpace />} />
   </Routes>
   </BrowserRouter>
   )

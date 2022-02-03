@@ -4,8 +4,8 @@ import Body from "./body";
 
 function Profile(){
     const userAvatarDetails={
-        title: ['DashBoard', 'Addrecipe', 'Favourites'],
-        url: ['../', '../addRecipe', '../favourite'],
+        title: ['DashBoard', 'WorkSpace'],
+        url: ['../', '../workspace'],
         homePath: "../"
       }
     return <div>

@@ -6,6 +6,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  background-color: #e5ebf1;
 }
 
 .img-fluid {
@@ -471,8 +472,8 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: #2b2b2b;
-  min-height: 40px;
+  background: #242538;
+  min-height: 100px;
   margin-top: 82px;
   color: #fff;
 }

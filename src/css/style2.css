@@ -460,9 +460,9 @@ body {
   # Breadcrumbs
   --------------------------------------------------------------*/
   .breadcrumbs {
-    padding: 15px 0;
-    background: #2b2b2b;
-    min-height: 40px;
+    padding: 70px 0 10px 0px;
+    background: #242538;
+    min-height: 120px;
     margin-top: 82px;
     color: #fff;
   }
@@ -1320,6 +1320,7 @@ body {
     padding: 40px 0 20px 0;
   }
   .blog .entry {
+    background-color: white;
     padding: 30px;
     margin-bottom: 60px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -1607,6 +1608,7 @@ body {
     color: #fff;
   }
   .blog .sidebar {
+    background-color: white;
     padding: 30px;
     margin: 0 0 60px 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);

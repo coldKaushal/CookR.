@@ -1,0 +1,31 @@
+.favourites{
+    padding: 20px 0 10px 0px;
+}
+
+.favourites h4{
+    color: black;
+    font-weight: 600;
+}
+
+.favourites .wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.favourites i{
+    vertical-align:top;
+    padding-left: 5px;
+}
+
+
+
+
+.workspace-table{
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+    background-color: white;   
+}
+
+.table-icon:hover{
+    color: red;
+}

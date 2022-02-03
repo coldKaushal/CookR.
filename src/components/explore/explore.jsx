@@ -6,8 +6,8 @@ import Footer from "../footer";
 
 function Explore(){
     const userAvatarDetails={
-        title: ['Profile', 'Addrecipe', 'Favourites'],
-        url: ['../profile', '../addRecipe', '../favourite'],
+        title: ['Profile', 'WorkSpace'],
+        url: ['../profile', '../workspace'],
         homePath: "../"
       }
     return <div>
