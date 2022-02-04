@@ -13,19 +13,68 @@
 }
 
 .favourites i{
-    vertical-align:top;
+    vertical-align:inherit;
     padding-left: 5px;
 }
-
-
-
-
-.workspace-table{
-    border-radius: 4px;
-    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
-    background-color: white;   
+.favourites .wrapper i{
+    vertical-align: top !important;
+    color: gold;
+}
+.workspace-container{
+    padding-top: 10px;
 }
 
-.table-icon:hover{
-    color: red;
+.workspace-table{
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+    background-color: #fbfbfb;   
+    
+}
+.workspace-table .table-container{
+    padding: 10px 0px 0px 0px;
+    line-height: 2.5;
+}
+
+.table-item:hover{
+    background-color: #b368e6;
+    color: white;
+}
+
+tr:last-of-type{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    /*any other style*/
+}
+
+
+
+.your-recipe{
+    padding: 20px 0 10px 0px;
+}
+
+.your-recipe  h4{
+    color: black;
+    font-weight: 600;
+}
+
+
+.your-recipe .wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.your-recipe .wrapper i{
+    color: black;
+    padding: 15px;
+    border-radius: 40px;
+    vertical-align: middle;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 0 10px 3px #888;
+    margin-left: 10px;
+}
+
+.your-recipe .wrapper i:hover{
+    background-color: #b368e6;
+    color: white;
 }

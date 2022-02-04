@@ -1,20 +1,11 @@
 import React from "react";
-import "../../css/workspace.css";
-import tableItems from "./data.js";
+import tableItems from "./data";
+
+function YourRecipe(){
 
 
 
-function Favourite() {
-    const [items, updateItems ] = React.useState(tableItems);
-    function deleteItem(id){
-        console.log("pressed");
-        updateItems(prev =>{
-            const newItems = items.filter((item) => item.id!=id);
-            console.log(newItems);
-            return newItems;
-        });
-    }
-    // 
+
     function TableContent(item) {
         return <tr key={item.id} className="table-item">
             <td>&emsp;{item.name}</td>
@@ -22,16 +13,17 @@ function Favourite() {
             <td>{item.difficulty}</td>
             <td>{item.likes}</td>
             <td>{item.comments}</td>
-            <td className="table-icon" ><i className="fas fa-trash-alt" onClick={()=>deleteItem(item.id)}></i></td>
+            <td className="table-icon" ><i className="fas fa-pencil-alt"></i></td>
             <td>&emsp;</td>
         </tr>
     }
 
 
 
-    return <div className="favourites">
+    return <div className="your-recipe">
         <div className="container wrapper" >
-            <h4>Favourites</h4><span><i className="fas fa-star"></i></span>
+        
+            <h4>Your Recipe</h4><i class="fas fa-plus"></i>
         </div>
 
 
@@ -48,7 +40,7 @@ function Favourite() {
                     </tr>
                 </thead>
                 <tbody>
-                    {items.map(TableContent)}
+                    {tableItems.map(TableContent)}
                 </tbody>
                 </div>
             </table>
@@ -57,4 +49,4 @@ function Favourite() {
     </div>
 }
 
-export default Favourite;
+export default YourRecipe;
