@@ -1,23 +1,26 @@
 import React from "react";
 import "../../css/workspace.css";
-import tableItems from "./data.js";
+import tableItems from "../../new_data.json";
 
 
 
 function Favourite() {
-    const [items, updateItems ] = React.useState(tableItems);
+    const [lastItemIndex, updateLastItemIndex] = React.useState(4);
+    const [items, updateItems ] = React.useState(tableItems.slice(0, lastItemIndex));
     function deleteItem(id){
         console.log("pressed");
         updateItems(prev =>{
             const newItems = items.filter((item) => item.id!=id);
             console.log(newItems);
-            return newItems;
+            const ret = [...newItems, tableItems[lastItemIndex]];
+            updateLastItemIndex(lastItemIndex+1);
+            return ret;
         });
     }
     // 
     function TableContent(item) {
         return <tr key={item.id} className="table-item">
-            <td>&emsp;{item.name}</td>
+            <td>&emsp;{item.title}</td>
             <td>{item.time} mins</td>
             <td>{item.difficulty}</td>
             <td>{item.likes}</td>
@@ -52,7 +55,9 @@ function Favourite() {
                 </tbody>
                 </div>
             </table>
+            <center><button type="button" class="btn btn-outline-primary">View All</button></center>
         </div>
+        
 
     </div>
 }

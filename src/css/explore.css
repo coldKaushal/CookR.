@@ -1,0 +1,125 @@
+.explore-body{
+
+}
+
+.explore-body .search-wrapper{
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+    display: grid;
+    font-size: 1rem;
+    font-weight: 600;
+    grid-gap: 10px;
+    grid-template-columns: 13px auto 13px;
+    letter-spacing: .03rem;
+    padding: 11px 16px;
+    padding-left: 13px;
+}
+
+.explore-body .search-wrapper .search{
+    background: 0 0;
+    border: none;
+    color: black;
+    display: inline-block;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.explore-body i{
+    align-items: bottom;
+}
+
+.explore-body .select{
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+    font-size: 1rem;
+    letter-spacing: .03rem;
+    padding: 11px 16px;
+    padding-left: 13px;
+}
+
+.explore-container{
+    margin-top: 15px;
+}
+
+.blog-entry{
+    background-color: #fbfbfb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgb(49 54 68 / 9%);
+}
+
+.blog-entry img{
+    width: 100%;
+    height: auto;
+
+}
+
+.blog-entry .blog-info{
+    margin-left: 15px;
+    display:flex;
+    align-items: center;
+}
+
+.blog-info p{
+    margin-left: 5px;
+    
+}
+.blog-info i{
+    margin-top: -13px;
+}
+.blog-entry .blog-title{
+    margin-top: 15px;
+    display: flex;
+    position: relative;
+}
+
+.blog-title .likes{
+    display: flex;
+    right: 0;
+    position: absolute;
+    vertical-align: bottom;
+}
+
+.likes p{
+    margin-right: 3px;
+}
+
+.likes i{
+    margin-top: 3px;
+    color: red;
+}
+
+
+
+.blog-entry .btn{
+    
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+    background-color: #b368e6;
+    border: none;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 10px #888;
+}
+
+.blog-entry .btn:hover{
+    background-color: white;
+    color: #b368e6;
+    font-weight: 600;
+}
+.explore-body .btn:active{
+    box-shadow: none;
+}
+
+.blogs-container{
+    margin-top: 30px;
+}

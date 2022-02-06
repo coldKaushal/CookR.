@@ -1,14 +1,15 @@
 import React from "react";
-import tableItems from "./data";
+import tableItems from "../../new_data.json";
 
 function YourRecipe(){
 
 
-
+    const [lastItemIndex, updateLastItemIndex] = React.useState(4);
+    const [items, updateItems ] = React.useState(tableItems.slice(0, lastItemIndex));
 
     function TableContent(item) {
         return <tr key={item.id} className="table-item">
-            <td>&emsp;{item.name}</td>
+            <td>&emsp;{item.title}</td>
             <td>{item.time} mins</td>
             <td>{item.difficulty}</td>
             <td>{item.likes}</td>
@@ -40,10 +41,11 @@ function YourRecipe(){
                     </tr>
                 </thead>
                 <tbody>
-                    {tableItems.map(TableContent)}
+                    {items.map(TableContent)}
                 </tbody>
                 </div>
             </table>
+            <center><button type="button" class="btn btn-outline-primary">View All</button></center>
         </div>
 
     </div>

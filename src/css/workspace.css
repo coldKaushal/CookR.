@@ -24,6 +24,20 @@
     padding-top: 10px;
 }
 
+.workspace-container .btn{
+    background-color: #b368e6;
+    border: none;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 2px 40px #888;
+}
+
+.workspace-container .btn:hover{
+    background-color: white;
+    color: #b368e6;
+    font-weight: 700;
+}
+
 .workspace-table{
     border-radius: 8px;
     box-shadow: 0 2px 20px rgb(49 54 68 / 9%);

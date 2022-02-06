@@ -16,7 +16,8 @@ function Body() {
     }
     const [detail, updateDetail] = React.useState(emptyDetail);
     React.useEffect(() => {
-        const username = JSON.parse(localStorage.getItem('user')).username; var myHeaders = new Headers();
+        const username = JSON.parse(localStorage.getItem('user')).username;
+        var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
         var urlencoded = new URLSearchParams();

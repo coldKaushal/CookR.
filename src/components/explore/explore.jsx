@@ -10,7 +10,8 @@ function Explore(){
         url: ['../profile', '../workspace'],
         homePath: "../"
       }
-    return <div>
+    
+    return <div >
         <Header userAvatarDetails={userAvatarDetails}/>
         <ExploreHeading title="Explore" />
         <ExploreBody />

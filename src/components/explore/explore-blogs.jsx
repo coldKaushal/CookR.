@@ -1,42 +1,62 @@
-import React from "react";
+import React, { Component } from "react";
 import ExploreBlogCard from "./explore-blog-cards";
 
 
-function ExploreBlogs(){
-    return <div>
-        <ExploreBlogCard
-                imgURL="assets/img/blog/blog-1.jpg"
-                title="Noodles"
-                writerName="John Doe"
-                blogDate="Jan 1, 2020"
-                totalComments="12 Comments"
-                description="Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore."
-                blogLink="explore/blogSingle"
+function ExploreBlogs(props) {
+    // const listInnerRef = React.useRef();
 
-             />
-             <ExploreBlogCard
-                imgURL="assets/img/blog/blog-2.jpg"
-                title="Gajar ka Halwa"
-                writerName="John Doe"
-                blogDate="Jan 1, 2020"
-                totalComments="12 Comments"
-                description="Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore."
-                blogLink="explore/blogSingle"
+    const [items, updateItems] = React.useState([{}]);
+    React.useEffect(() => {
+        // console.log('fetch');
+        if (props.name.length > 3 || props.name.length==0) {
+            // console.log("fetch");
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-             />
-              <ExploreBlogCard
-                imgURL="assets/img/blog/blog-3.jpg"
-                title="Smoothy"
-                writerName="John Doe"
-                blogDate="Jan 1, 2020"
-                totalComments="12 Comments"
-                description="Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore."
-                blogLink="explore/blogSingle"
+            var urlencoded = new URLSearchParams();
+            urlencoded.append("index", "0");
+            urlencoded.append("time", props.time);
+            urlencoded.append("difficulty", props.difficulty);
+            urlencoded.append("type", props.type);
+            urlencoded.append("name", props.name.length==0?'NA':props.name.replace(/(^\w|\s\w)/g, m => m.toUpperCase()));
 
-             />
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: urlencoded,
+            };
+
+            fetch("http://localhost:4000/explore", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    if (result != 'error') {
+                        console.log(JSON.parse(result));
+                        updateItems(JSON.parse(result));
+                    } else {
+                        updateItems([]);
+                    }
+                })
+                .catch(error => console.log('error', error));
+        }
+    }, [props.name, props.type, props.time, props.difficulty])
+
+    function createBlogCards(item) {
+        return <ExploreBlogCard
+            key={item.id}
+            title={item.name}
+            time={item.time}
+            comments={item.comments}
+            likes={item.likes}
+            difficulty={item.difficulty} 
+            type={item.type }   
+            />
+
+
+    }
+    return <div className="blogs-container" >
+        <div className="row" >
+            {items.map(createBlogCards)}
+        </div>
     </div>
 }
 

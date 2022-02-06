@@ -2,34 +2,35 @@ import React from "react";
 
 function ExploreBlogCard(props){
     return (
-    <article class="entry">
-
-    <div class="entry-img">
-      <img src={props.imgURL} alt="" class="img-fluid"/>
-    </div>
-
-    <h2 class="entry-title">
-      <a href="blog-single.html">{props.title}</a>
-    </h2>
-
-    <div class="entry-meta">
-      <ul>
-        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{props.writerName}</a></li>
-        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{props.blogDate}</time></a></li>
-        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{props.totalComments}</a></li>
-      </ul>
-    </div>
-
-    <div class="entry-content">
-      <p>
-        {props.description}      
-        </p>
-      <div class="read-more">
-        <a href={props.blogLink}>Read More</a>
+      <div className="col-lg-4 col-md-6">
+        <div className="container blog-entry" key={props.id}>
+        <img src="https://content3.jdmagicbox.com/comp/allahabad/q5/0532px532.x532.181115190131.z9q5/catalogue/food-square-katra-allahabad-restaurants-klhq6ijf66.jpg" />
+        <div className="blog-title">
+          <h4>{props.title}</h4>
+          <div className="likes">
+          <p>{props.likes}</p>
+          <i class="fas fa-heart"></i>
+         
+          </div>
+        </div>
+        <div className="blog-info">
+          <i className="fas fa-stopwatch"></i>
+          <p>{props.time}</p>
+        </div><div className="blog-info">
+        <i class="fas fa-comments"></i>
+          <p>{props.comments} comments</p>
+        </div>
+        <div className="blog-info">
+        <i class="fas fa-trophy"></i>
+          <p>{props.difficulty}</p>
+        </div>
+        <div className="blog-info">
+        
+          <p>{props.type}</p>
+        </div>
+        <button className="btn">View</button>
       </div>
-    </div>
-
-  </article>
+      </div>
   );
 }
 
