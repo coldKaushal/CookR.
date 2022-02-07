@@ -3,18 +3,16 @@ import ExploreBlogCard from "./explore-blog-cards";
 
 
 function ExploreBlogs(props) {
-    // const listInnerRef = React.useRef();
 
     const [items, updateItems] = React.useState([{}]);
     React.useEffect(() => {
-        // console.log('fetch');
+        window.scrollTo(0, 0)
         if (props.name.length > 3 || props.name.length==0) {
-            // console.log("fetch");
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
             var urlencoded = new URLSearchParams();
-            urlencoded.append("index", "0");
+            urlencoded.append("index", props.index);
             urlencoded.append("time", props.time);
             urlencoded.append("difficulty", props.difficulty);
             urlencoded.append("type", props.type);
@@ -38,7 +36,7 @@ function ExploreBlogs(props) {
                 })
                 .catch(error => console.log('error', error));
         }
-    }, [props.name, props.type, props.time, props.difficulty])
+    }, [props.name, props.type, props.time, props.difficulty, props.index])
 
     function createBlogCards(item) {
         return <ExploreBlogCard
