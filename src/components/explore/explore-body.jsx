@@ -11,6 +11,7 @@ function ExploreBody() {
   const [time, updateTime] = React.useState("NA");
   const [difficulty, updateDifficulty] = React.useState("NA");
   const [index, updateIndex] = React.useState(1);
+  const [pageCount, updatePageCount] = React.useState(1);
   function changeName(event) {
     const newValue = event.target.value;
     updateName(newValue);
@@ -31,9 +32,49 @@ function ExploreBody() {
     updateDifficulty(newDifficulty);
     updateIndex(1);
   }
-  function changeIndex(event, newValue){
+  function changeIndex(event, newValue) {
     updateIndex(newValue)
   }
+
+  function changePageCount(newValue) {
+    updatePageCount(newValue)
+  }
+
+
+  React.useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("name", name);
+    if(difficulty!='NA'){
+      urlencoded.append("difficulty", difficulty);
+    }
+    if(type!='NA'){
+      urlencoded.append("type", type);
+    }
+    if(time!='NA'){
+      urlencoded.append("time", time);
+    }
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: urlencoded,
+    };
+
+    fetch("http://localhost:4000/getPageCount", requestOptions)
+      .then(response => response.text())
+      .then(result => {
+        const newResult = JSON.parse(result);
+        console.log(newResult.length);
+        updatePageCount(Math.ceil(newResult.length/8));
+      })
+      .catch(error => console.log('error', error));
+  }, [name, difficulty, type, time])
+
+
+
   console.log(index);
   return <section id="blog" className="blog">
     <div className="container explore-body" data-aos="fade-up">
@@ -47,12 +88,13 @@ function ExploreBody() {
         type={type}
         time={time}
         difficulty={difficulty}
-        index = {index}
+        index={index}
+       
       />
-     <Pagination count={10} variant="outlined" shape="rounded" color="secondary"
-      page={index}
-       onChange={changeIndex}
-     />
+      <Pagination count={pageCount} variant="outlined" shape="rounded" color="secondary"
+        page={index}
+        onChange={changeIndex}
+      />
     </div>
   </section>
 }
