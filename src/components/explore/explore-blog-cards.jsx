@@ -14,7 +14,7 @@ function ExploreBlogCard(props) {
       <div className="container blog-entry" key={props.id} style={shadowStyle}>
         <img src="https://content3.jdmagicbox.com/comp/allahabad/q5/0532px532.x532.181115190131.z9q5/catalogue/food-square-katra-allahabad-restaurants-klhq6ijf66.jpg" />
         <div className="container">
-
+          <div className="blog-info-wrapper">
           <div className="row blog-info">
             <div className="col-sm-8">
               <h4>{props.title}</h4>
@@ -57,9 +57,7 @@ function ExploreBlogCard(props) {
               <p>{props.difficulty}</p>
             </div>
           </div>
-
-
-
+          </div>
           <button className="btn">View</button>
         </div>
 
