@@ -15,7 +15,6 @@ function Search(){
         <Header userAvatarDetails={userAvatarDetails}/>
         <ExploreHeading title="Search recipes by ingredients!!" />
         <SearchBody />
-        <Footer />
         </div>
     );
 }

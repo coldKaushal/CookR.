@@ -6,14 +6,14 @@ function ExploreSearchBars(props){
     <div className="col-lg-4">
       <h6>Search</h6>
       <div className="search-wrapper">
-        <i class="fas fa-search"></i>
+        <i className="fas fa-search"></i>
         <input autoComplete="off" className="search" name="name" value={props.name} onChange={(event)=>props.changeName(event)}/>
       </div>
     </div>
 
     <div className="col-lg-2">
       <h6>Type</h6>
-      <select class="form-select select" aria-label="Default select example" name="type" onChange={(event)=>props.changeType(event)}>
+      <select className="form-select select" aria-label="Default select example" name="type" onChange={(event)=>props.changeType(event)}>
         <option selected value="NA">Any</option>
         <option value="vegetarian">Vegetarian</option>
         <option value="non vegetarian">Non Vegetarian</option>
@@ -22,7 +22,7 @@ function ExploreSearchBars(props){
 
     <div className="col-lg-2">
       <h6>Difficulty</h6>
-      <select class="form-select select" aria-label="Default select example" name="difficulty" onChange={(event)=> props.changeDifficulty(event)}>
+      <select className="form-select select" aria-label="Default select example" name="difficulty" onChange={(event)=> props.changeDifficulty(event)}>
         <option selected value="NA">Any</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -32,7 +32,7 @@ function ExploreSearchBars(props){
 
     <div className="col-lg-2">
       <h6>Preptime</h6>
-      <select class="form-select select" aria-label="Default select example" name="time" onChange={(event)=>props.changeTime(event)}>
+      <select className="form-select select" aria-label="Default select example" name="time" onChange={(event)=>props.changeTime(event)}>
         <option selected value="NA">Any</option>
         <option value="< 15">{"< 15 mins"}</option>
         <option value="< 30">{"< 30 mins"}</option>
