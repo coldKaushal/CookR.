@@ -1,3 +1,4 @@
+import { green } from "@mui/material/colors";
 import React from "react";
 import "../../css/explore.css";
 
@@ -8,8 +9,20 @@ function SearchBlogCard(props){
       const nonVegStyle = {
         boxShadow: "0 2px 20px red"
       }
+      const vegIngredient = {
+        color: 'green'
+      }
+      const nonVegIngredient = {
+        color: 'red'
+      }
       const [shadowStyle, updateShadowStyle] = React.useState(props.type=='vegetarian'?vegStyle:nonVegStyle);
-      
+      function createIngredients(ingredient){
+        if(props.globalItemList.includes(ingredient)){
+          return <p style={vegIngredient}>{ingredient}</p>
+        }else{
+          return <p style={nonVegIngredient}>{ingredient}</p>
+        }
+      }
       return (
         <div className="col-lg-4 col-md-6">
           <div className="container blog-entry" key={props.id} style={shadowStyle}>
@@ -65,11 +78,7 @@ function SearchBlogCard(props){
                   <i class="fas fa-carrot"></i>
                 </div>
                 <div className="col-sm-10">
-
-
-                  //TODO: add itemList
-
-                  
+                  {props.recipeIngredients.map(createIngredients)}                
                 </div>
               </div>
               </div>

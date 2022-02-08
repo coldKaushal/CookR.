@@ -7,6 +7,8 @@ import ResultPage from "./search-result.jsx";
 
 function SearchBody() {
     const [itemList, updateItemList] = React.useState([]);
+    const [result, updateResult] = React.useState([]);
+
 
     function addItem(item) {
         // console.log(item);
@@ -34,8 +36,29 @@ function SearchBody() {
 
     }
     const [searchBtnClicked, updateSearchBtnClicked] = React.useState(false);
-    function findRecipes(){
+    function findRecipes() {
         updateSearchBtnClicked(true);
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("ingredients", itemList);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+        };
+
+        fetch("http://localhost:4000/getRecipe", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const foundResults = JSON.parse(result);
+                console.log(foundResults);
+                updateResult(foundResults);
+            })
+            .catch(error => console.log('error', error));
+
     }
 
 
@@ -46,7 +69,7 @@ function SearchBody() {
                     {item}
                 </div>
                 <div className="col-sm-2">
-                    <i className="far fa-times-circle" id={item} onClick={()=>removeItem(item)}></i>
+                    <i className="far fa-times-circle" id={item} onClick={() => removeItem(item)}></i>
                 </div>
             </div>
         </div>
@@ -58,18 +81,18 @@ function SearchBody() {
                 <div className="col-3 ">
                     <h4>Items Present</h4>
                     <button className="btn search-btn" onClick={findRecipes}>Find Recipes</button>
-                   
+
                     <div className="item-list-wrapper">
                         {itemList.map(createList)}
                     </div>
                 </div>
                 <div className="col-9" >
-                    <SearchBar addItem={addItem} itemList={itemList} />
-                    <ResultPage itemList={itemList} searchBtnClicked={searchBtnClicked} />
+                    <SearchBar addItem={addItem} itemList={itemList} searchBtnClicked={searchBtnClicked} />
+                    <ResultPage result={result} itemList={itemList} searchBtnClicked={searchBtnClicked} />
                 </div>
 
             </div>
-           
+
 
         </div>
 

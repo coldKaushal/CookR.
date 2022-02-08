@@ -87,3 +87,7 @@
     color: #b368e6;
     box-shadow: none;
 }
+.search-results h2{
+    color: black;
+    font-weight: 700;
+}

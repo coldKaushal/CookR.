@@ -6,6 +6,8 @@ import "../../css/search.css";
 function SearchBar(props) {
     const [name, updateName] = React.useState('');
     const [list, updateList] = React.useState([]);
+    
+
     function changeName(event) {
         const newValue = event.target.value;
         updateName(newValue);

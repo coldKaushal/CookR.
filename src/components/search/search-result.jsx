@@ -3,14 +3,21 @@ import SearchBlogCard from "./search-blog-card";
 
 function SearchResult(props){
 
-    const itemList = props.itemList;
-    const [resultList, updateResultList] = React.useState([]);
+    const resultList = props.result;
 
-    function createResult(){
-        return <SearchBlogCard />
+    function createResult(item){
+        return <SearchBlogCard type={item.type} 
+            title= {item.name}
+            difficulty= {item.difficulty}
+            time = {item.time}
+            likes = {item.likes}
+            comments = {item.comments}
+            globalItemList = {props.itemList}
+            recipeIngredients = {item.uniqueIngredients}
+        />
     }
     
-    return <div>
+    return <div className="search-results">
         {resultList.length>0? <h2>Recipes Found!</h2>: props.searchBtnClicked? <h2>Can't find any recipe</h2>: <h2>Add available ingredients and find recipe!!</h2>}
         {resultList.length>0? resultList.map(createResult): null}
     </div>
