@@ -42,6 +42,7 @@ function ExploreBlogs(props) {
 
     function createBlogCards(item) {
         return <ExploreBlogCard
+            id = {item.id}
             key={item.id}
             title={item.name}
             time={item.time}

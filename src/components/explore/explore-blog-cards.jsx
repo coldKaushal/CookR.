@@ -1,12 +1,18 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 
 function ExploreBlogCard(props) {
+  const navigate = useNavigate();
   const vegStyle = {
     boxShadow: "0 2px 20px green"
   }
   const nonVegStyle = {
     boxShadow: "0 2px 20px red"
   }
+  const newpath = '../blogs' + props.id;
+  console.log(newpath);
   const [shadowStyle, updateShadowStyle] = React.useState(props.type=='vegetarian'?vegStyle:nonVegStyle);
   
   return (
@@ -58,7 +64,7 @@ function ExploreBlogCard(props) {
             </div>
           </div>
           </div>
-          <button className="btn">View</button>
+          <button className="btn" onClick={()=>navigate(newpath)}>View</button>
         </div>
 
       </div>

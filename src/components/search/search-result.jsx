@@ -6,7 +6,9 @@ function SearchResult(props){
     const resultList = props.result;
 
     function createResult(item){
-        return <SearchBlogCard type={item.type} 
+        return <SearchBlogCard 
+            id={item.id}
+            type={item.type} 
             title= {item.name}
             difficulty= {item.difficulty}
             time = {item.time}

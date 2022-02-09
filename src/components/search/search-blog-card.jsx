@@ -1,8 +1,13 @@
 import { green } from "@mui/material/colors";
 import React from "react";
 import "../../css/explore.css";
+import { useNavigate } from 'react-router-dom';
+
 
 function SearchBlogCard(props){
+  const navigate = useNavigate();
+  const newpath = '../blogs' + props.id;
+  console.log(newpath);
     const vegStyle = {
         boxShadow: "0 2px 20px green"
       }
@@ -82,7 +87,7 @@ function SearchBlogCard(props){
                 </div>
               </div>
               </div>
-              <button className="btn">View</button>
+              <button className="btn" onClick={()=>navigate(newpath)}>View</button>
             </div>
     
           </div>

@@ -9,6 +9,7 @@ import Explore from "./components/explore/explore";
 import Search from "./components/search/search";
 import Profile from "./components/profile/profile";
 import WorkSpace from "./components/workspace/workspace";
+import Blogs from "./components/blogs/blogs";
 //TODO: Fix BackToTop button
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Route path="/search" element={<Search />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="/workspace" element={<WorkSpace />} />
+    <Route path="/blogs:handle" element={<Blogs />} />
   </Routes>
   </BrowserRouter>
   )
